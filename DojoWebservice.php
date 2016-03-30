@@ -2,9 +2,8 @@
 /*
 * 2015 Dojo
 *
-*  @author Dojo BV <info@dojo.nl>
+*  @author Dojo BV <info@dojo.business>
 *  @copyright  2015 Dojo BV
-*  International Registered Trademark & Property of Dojo
 */
 
 /**
@@ -13,7 +12,7 @@
 class DojoWebservice
 {
 
-	/** @var string Shop URL */
+	/** @var string Site URL */
 	protected $url;
 
 	/** @var string Authentification key */
@@ -217,10 +216,10 @@ class DojoWebservice
 		{
 			$url = (isset($options['resource']) ? $this->url.'/api/'.$options['resource'] : $options['url']);
 			$xml = $options['postXml'];
-			if (isset($options['id_shop']))
-				$url .= '&id_shop='.$options['id_shop'];
-			if (isset($options['id_group_shop']))
-				$url .= '&id_group_shop='.$options['id_group_shop'];
+			if (isset($options['id_site']))
+				$url .= '&id_site='.$options['id_site'];
+			if (isset($options['id_group_site']))
+				$url .= '&id_group_site='.$options['id_group_site'];
 		}
 		else
 			throw new DojoWebserviceException('Bad parameters given');
@@ -269,7 +268,7 @@ class DojoWebservice
 			if (isset($options['id']))
 				$url .= '/'.$options['id'];
 
-			$params = array('filter', 'display', 'sort', 'limit', 'id_shop', 'id_group_shop');
+			$params = array('filter', 'display', 'sort', 'limit', 'id_site', 'id_group_site');
 			foreach ($params as $p)
 				foreach ($options as $k => $o)
 					if (strpos($k, $p) !== false)
@@ -335,10 +334,10 @@ class DojoWebservice
 		{
 			$url = (isset($options['url']) ? $options['url'] : $this->url.'/api/'.$options['resource'].'/'.$options['id']);
 			$xml = $options['putXml'];
-			if (isset($options['id_shop']))
-				$url .= '&id_shop='.$options['id_shop'];
-			if (isset($options['id_group_shop']))
-				$url .= '&id_group_shop='.$options['id_group_shop'];
+			if (isset($options['id_site']))
+				$url .= '&id_site='.$options['id_site'];
+			if (isset($options['id_group_site']))
+				$url .= '&id_group_site='.$options['id_group_site'];
 		}
 		else
 			throw new DojoWebserviceException('Bad parameters given');
@@ -380,10 +379,10 @@ class DojoWebservice
 				$url = $this->url.'/api/'.$options['resource'].'/?id=['.implode(',', $options['id']).']';
 			else
 				$url = $this->url.'/api/'.$options['resource'].'/'.$options['id'];
-		if (isset($options['id_shop']))
-			$url .= '&id_shop='.$options['id_shop'];
-		if (isset($options['id_group_shop']))
-			$url .= '&id_group_shop='.$options['id_group_shop'];
+		if (isset($options['id_site']))
+			$url .= '&id_site='.$options['id_site'];
+		if (isset($options['id_group_site']))
+			$url .= '&id_group_site='.$options['id_group_site'];
 		$request = self::executeRequest($url, array(CURLOPT_CUSTOMREQUEST => 'DELETE'));
 		self::checkStatusCode($request['status_code']);// check the response validity
 		return true;
