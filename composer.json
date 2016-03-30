@@ -1,0 +1,19 @@
+{
+    "name": "dojomojo/dojo-webservice-lib",
+    "description": "Dojo Webservice access library",
+    "license": "GNU GENERAL PUBLIC LICENSE",
+    "authors": [
+        {
+            "name": "Dojo Business",
+            "email": "info@dojo.business"
+        }
+    ],
+    "autoload": {
+        "classmap": ["DojoWebService.php"]
+    },
+    "minimum-stability": "dev-master",
+    "require": {
+        "php": ">= 5.3.0",
+        "ext-curl": "*"
+    }
+}
